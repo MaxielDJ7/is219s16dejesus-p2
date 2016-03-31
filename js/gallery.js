@@ -37,6 +37,13 @@ function swapPhoto() {
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded
 	//from the JSON string
+
+  var slideShow= $('#slideShow');
+  var currentSrc
+
+  slideShow.find('img').src= newImg.path;
+
+
 	console.log('swap photo');
 }
 
@@ -54,8 +61,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'insert_url_here_to_image_json';
-
+var mUrl = 'images.json';
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
 //@param A GalleryImage object. Use this method for an event handler for loading a gallery Image object (optional).
@@ -79,7 +85,7 @@ window.addEventListener('load', function() {
 
 }, false);
 
-function GalleryImage(where, what, when, image) {
+function GalleryImage(where, what, when, path) {
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
 	//2. description of photo
@@ -89,6 +95,47 @@ function GalleryImage(where, what, when, image) {
   this.where= where;
   this.what= what;
   this.when= when;
-  this.image= image; 
+  this.path= path;
+
+}
+
+mRequest.onreadystatechange= function(){
+
+  if (mRequest.readyState == 4 && mRequest.status == 200) {
+    try{
+      mJson= JSON.parse(mRequest.responseText);
+
+        var rJson= {
+            //Create a JSON object that contains the retrieved JSON3 string (in this case, a list of photo URLs and related metadata).
+            "path" : mJson.imgPath,
+            "what": mJson.description,
+            "when": mJson.date,
+            "where": mJson.imgLocation
+          }
+
+    } catch(err) {
+      console.log(err.message)
+    }
+  }
+
+};
+
+mRequest.open("GET", mURL, true);
+mRequest.send();
+
+/* Iterate through the JSON object and create GalleryImage objects using javascript for each image in the JSON object. Put each of these new GalleryImage objects into an array called mImages[]. */
+
+for( var element in rJson){
+
+  if(!rJson.hasOwnProperty(element)){
+
+    continue;
+  }
+
+ //create a new image with the json elements retrieved
+
+  var newImg= GalleryImage(rJson.path, rJson.what, rJson.when, rJson.where );
+
+  mImages.push(newImg);
 
 }
