@@ -161,6 +161,31 @@ for( var element in rJson){
 
 /**********  END Part 2 **********/
 
+/**********  Part 4 **********/
+
+$('.moreIndicator').click(function()){
+
+  if(this.attr('class') === "rot90"){
+
+    //down
+
+    this.addClass('rot270');
+    $('.details').slideDown();
+
+  }
+
+  else{
+
+    //up
+
+    this.removeClass('rot270').addClass('rot90');
+    $('.details').slideUp();
+
+  }
+
+
+}
+
 
 
 
