@@ -33,22 +33,50 @@ function animate() {
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
 function swapPhoto() {
+
+  /**********  Part 2 . 4 **********/
+
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded
 	//from the JSON string
 
-  var slideShow= $('#slideShow');
-  var currentSrc
+  //Create a slide show to iterate over all the GalleryImage Objects in your mImages[] array.
+if(mCurrentIndex >= mImages.length){
 
-  slideShow.find('img').src= newImg.path;
+  mCurrentIndex= 0;
 
-  $('.location')= newImg.location;
-  $('.decription')= newImg.description;
-  $('.date')= newImg.date;
+}
+
+else{
+
+  while( mCurrentIndex <= mImages.length){
+
+    var imageFile= newImg[mCurrentIndex];
+
+    var currentSrc= $('#slideShow').find('img').src;
+
+    var newSrc= imageFile.path;
+
+    currentSrc= newSrc;
+
+    $('.location')= imageFile.location;
+    $('.decription')= imageFile.description;
+    $('.date')= imageFile.date;
+
+    mCurrentIndex ++;
+
+  }
+
+}
 
 
-	console.log('swap photo');
+
+
+
+
+
+    	console.log('swap photo');
 }
 
 // Counter for the mImages array
@@ -136,7 +164,11 @@ for( var element in rJson){
 
 }
 
+
+
 /**********  END Part 2 **********/
+
+
 
 
 $(document).ready( function() {
