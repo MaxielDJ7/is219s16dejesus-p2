@@ -161,7 +161,7 @@ for( var element in rJson){
 
 /**********  END Part 2 **********/
 
-/**********  Part 4 **********/
+/**********  Part 3 **********/
 
 $('.moreIndicator').click(function()){
 
@@ -186,6 +186,14 @@ $('.moreIndicator').click(function()){
 
 }
 
+//get left coordinates of #gallery
+//set offset left of #nextphoto double the gallery's left coordinates
+
+var gCoord= $('#gallery').position().left; 
+$('#nextPhoto').offset({left: gCoord});
+
+
+/**********  END Part 3 **********/
 
 
 
