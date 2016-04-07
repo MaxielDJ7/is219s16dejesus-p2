@@ -42,40 +42,33 @@ function swapPhoto() {
 	//from the JSON string
 
   //Create a slide show to iterate over all the GalleryImage Objects in your mImages[] array.
-if(mCurrentIndex >= mImages.length){
+  if(mCurrentIndex >= mImages.length){
 
-  mCurrentIndex= 0;
-
-}
-
-else{
-
-  while( mCurrentIndex <= mImages.length){
-
-    var imageFile= newImg[mCurrentIndex];
-
-    var currentSrc= $('#slideShow').find('img').src;
-
-    var newSrc= imageFile.path;
-
-    currentSrc= newSrc;
-
-    $('.location')= imageFile.location;
-    $('.decription')= imageFile.description;
-    $('.date')= imageFile.date;
-
-    mCurrentIndex ++;
+    mCurrentIndex= 0;
 
   }
 
-}
+  else{
 
+    while( mCurrentIndex <= mImages.length){
 
+      var imageFile= mImages[mCurrentIndex];
 
+      var currentSrc= $('#slideShow').find('img').src;
 
+      var newSrc= imageFile.path;
 
+      currentSrc= newSrc;
 
+      $('.location')= imageFile.location;
+      $('.decription')= imageFile.description;
+      $('.date')= imageFile.date;
 
+      mCurrentIndex ++;
+
+    }
+
+  }
     	console.log('swap photo');
 }
 
