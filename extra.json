@@ -1,0 +1,40 @@
+{
+    "images": [
+        {
+            "imgPath": "img/maxie/1.png",
+            "imgLocation": "Wonderland",
+            "description": "Pretty Yellow Flower",
+            "date": "01/01/2016"
+        },
+
+        {
+            "imgPath": "img/maxie/2.png",
+            "imgLocation": "Smallville",
+            "description": "Super Red Flower",
+            "date": "07/07/2015"
+        },
+
+        {
+            "imgPath": "img/maxie/3.png",
+            "imgLocation": "Nevada",
+            "description": "Pretty in Powder Pink Flower",
+            "date": "04/01/2016"
+        },
+
+        {
+            "imgPath": "img/maxie/4.png",
+            "imgLocation": "Costa Rica",
+            "description": "Carrib Orange Flower",
+            "date": "02/05/2014"
+        },
+
+        {
+            "imgPath": "img/maxie/5.png",
+            "imgLocation": "Neverland",
+            "description": "This Flower is actually really ugly",
+            "date": "05/09/2013"
+        }
+
+      ]
+
+    }
