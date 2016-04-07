@@ -43,6 +43,10 @@ function swapPhoto() {
 
   slideShow.find('img').src= newImg.path;
 
+  $('.location')= newImg.location;
+  $('.decription')= newImg.description;
+  $('.date')= newImg.date;
+
 
 	console.log('swap photo');
 }
@@ -72,25 +76,14 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 	}
 }
 
-$(document).ready( function() {
-
-	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
-
-});
-
-window.addEventListener('load', function() {
-
-	console.log('window loaded');
-
-}, false);
+/**********  Part 1 **********/
 
 function GalleryImage(where, what, when, path) {
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
 	//2. description of photo
 	//3. the date when the photo was taken
-	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+	//4. either a String (src URL) or an an HTMLImageObject
 
   this.where= where;
   this.what= what;
@@ -98,6 +91,9 @@ function GalleryImage(where, what, when, path) {
   this.path= path;
 
 }
+/**********  END Part 1 **********/
+
+/**********  Part 2 **********/
 
 mRequest.onreadystatechange= function(){
 
@@ -139,3 +135,19 @@ for( var element in rJson){
   mImages.push(newImg);
 
 }
+
+/**********  END Part 2 **********/
+
+
+$(document).ready( function() {
+
+	// This initially hides the photos' metadata information
+	$('.details').eq(0).hide();
+
+});
+
+window.addEventListener('load', function() {
+
+	console.log('window loaded');
+
+}, false);
