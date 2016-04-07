@@ -54,7 +54,7 @@ function swapPhoto() {
 
       var imageFile= mImages[mCurrentIndex];
 
-      var currentSrc= $('#slideShow').find('img').src;
+      var currentSrc= $('#slideShow').find('img').attr('src');
 
       var newSrc= imageFile.path;
 
@@ -189,8 +189,15 @@ $('.moreIndicator').click(function()){
 //get left coordinates of #gallery
 //set offset left of #nextphoto double the gallery's left coordinates
 
-var gCoord= $('#gallery').position().left; 
+var gCoord= $('#gallery').position().left;
 $('#nextPhoto').offset({left: gCoord});
+
+//hover opacity
+
+$('#nextPhoto', '#prevPhoto').hover(function(){
+  $this.css("opacity", .8);
+});
+
 
 
 /**********  END Part 3 **********/
